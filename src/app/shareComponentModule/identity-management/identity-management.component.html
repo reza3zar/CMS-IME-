@@ -1,0 +1,171 @@
+<h3 style="text-align: center;">مشخصات اطلاعات کدهای معاملاتی   </h3>
+
+<form  [formGroup]="requestForm" class="simple-form"  *ngIf="showNewRequest"  (ngSubmit)="onSubmit()">
+         <div class="panel panel-info">
+             <div class="panel-heading clearfix">
+                 <i class="icon-calendar"></i>
+                 <h3 class="panel-title"></h3>
+             </div>
+
+             <div class="panel-body">
+                    <div class="row">
+                            <p class="serghat-main">
+                                    مرحله اطلاعات کدهای معاملاتی
+                                    <br>
+                                     لطفا اطلاعات کد معاملاتی خود را وارد نمایید.
+
+                            </p>
+                            <hr>
+                        </div>
+
+
+
+                 <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+
+                        <div class="input-group">
+                                <span class="input-group-addon">کد معاملاتی  </span>
+                                <input type="text" formControlName="code"  [(ngModel)]="identityDetail.code"   required  class="form-control" />
+                            </div>
+                            <div *ngIf="submitted && ctrl.code.errors" class="invalid-feedback">
+                                     <div *ngIf="submitted && ctrl.code.errors.required" class="fontColorError">فیلد کد معاملاتی الزامی است</div>
+                             </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+
+                        <div class="input-group">
+                                <span class="input-group-addon">بازار </span>
+                                <app-identity-combo-box formControlName="identityType"  [(ngModel)]="identityDetail.identityType"   required ></app-identity-combo-box>
+                            </div>
+                            <div *ngIf="submitted && ctrl.identityType.errors" class="invalid-feedback">
+                                     <div *ngIf="submitted && ctrl.identityType.errors.required" class="fontColorError">فیلد بازار الزامی است</div>
+                             </div>
+                    </div>
+                 </div>
+                 <br />
+                 <br />
+
+                 <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-xs-6 col-md-6">
+                                <button
+                                (click)="onSubmit()"
+                                [disabled]="!requestForm.valid" value="ذخیره "
+                                class="btn btn-success btn-block btn-lg">ذخیره
+                             </button>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <a  (click)="cancel()"  class="btn btn-danger btn-block btn-lg">انصراف</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+             </div>
+             <br />
+
+
+
+
+             </div>
+             </form>
+
+
+             <div class="row" *ngIf="!showNewRequest">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                <kendo-grid
+                [data]="gridDataCollection"
+                (selectionChange)="selected($event)"
+                [resizable]="true"
+                [sortable]="{ mode: 'multiple' }"
+                [selectable]="{ mode: 'single' }"
+                [sortable]="{
+                    allowUnsort: true,
+                    mode: 'multiple'
+                }"
+                [height]="200"
+            >
+
+            <kendo-grid-messages
+            noRecords="رکوردی برای نمایش یافت نشد!"
+            pagerItems="کل رکورد"
+            pagerOf="از"
+            sortAscending="صعودی"
+            sortDescending="نزولی"
+            filter="جستجو"
+            columns="انتخاب سر ستون"
+            columnsApply="اعمال"
+            columnsReset="باز نشانی"
+        >
+        </kendo-grid-messages>
+                <ng-template kendoGridToolbarTemplate>
+                    <button
+                    (click)="createNewRequest()"
+                    class="btn btn-default btn-block"
+                    type="button"
+                ><i class="fa fa-plus" aria-hidden="true"></i>
+
+                    ایجاد
+                </button>
+                </ng-template>
+
+                <kendo-grid-column
+                    field="identityType.name"
+                    title="بازار"
+                    width="210"
+                >
+                </kendo-grid-column>
+
+                <kendo-grid-column
+                field="code"
+                title="کــد معاملاتی"
+                width="210"
+            >
+            </kendo-grid-column>
+
+
+
+
+                <kendo-grid-column field="عملیات" [filterable]="false" width="150">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <div class="row" style="margin-right: 1px">
+                            <button
+                                type="button"
+                                (click)="deleteSelectedIdentify()"
+                                class="btn btn-block btn-circle"
+                                [disabled]="disableShowBtn"
+                                (click)="editSelectedIdentify()">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                            <button
+                                type="button"
+
+                                class="btn btn-info  btn-circle"
+                                [disabled]="disableShowBtn">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+
+                        </div>
+                    </ng-template>
+                </kendo-grid-column>
+
+
+            </kendo-grid>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xs-6 col-md-6">
+                        <a
+                            (click)="onNext()"
+                            class="btn btn-success btn-block btn-lg">مرحله بعد</a>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <a (click)="onPrevious()" class="btn btn-danger btn-block btn-lg">مرحله قبل</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
+

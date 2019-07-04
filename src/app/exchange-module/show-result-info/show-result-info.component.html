@@ -1,0 +1,45 @@
+<!-- <div class="row" *ngIf="(collection?.length>0)">
+    <div   class="container holderbig"   style="direction: rtl;">
+            <div class="col-sm-12">
+              <div class="card border-success mb-3 bg-light">
+                <div class="card-body " *ngIf="collection?.length>0" >
+                        <forms-builder
+                        [controls]="collection"
+                        [operationBar]="operationBar"
+                      ></forms-builder>
+                </div>
+              </div>
+
+            </div>
+          </div>
+</div> -->
+
+
+<div
+    class="example-wrapper container-fluid screen-Active"
+    style="height: 100%; width: 100%;padding-left: 0px;padding-right: 0px;">
+    <div
+        class="row"
+        class="screen-Active"
+        style="height: 100%; width: 100%;margin: 0"
+    >
+
+    <!-- کارت بزرگتر -->
+        <div class="col-xs-12 col-sm-12 example-col" class="container holderbig panelbar-wrapper">
+            <app-close-side-nav></app-close-side-nav>
+<hr>
+
+                <div class="panel-body" >
+                    <forms-builder
+                    [controls]="collection"
+                    [operationBar]="operationBar"
+                  ></forms-builder>
+                </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+

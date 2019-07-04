@@ -1,0 +1,285 @@
+<form  [formGroup]="requestForm" class="simple-form"  (ngSubmit)="onSubmit()">
+    <h3 style="text-align: center;margin: 8px">مشخصات مالی شخص حقوقی</h3>
+     <div class="panel panel-info">
+         <div class="panel-heading clearfix">
+             <i class="icon-calendar"></i>
+             <h3 class="panel-title"></h3>
+         </div>
+
+         <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > جــمـــع دارایــی شـــرکـت بــر اســاس آخــرین صــورت هــای مـالی</span>
+                                         <input type="text" formControlName="totalAssetsBasedOnTheLatestFinancialStatements" [(ngModel)]="financialDetail.totalAssetsBasedOnTheLatestFinancialStatements"
+                                          required class="form-control"   />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.totalAssetsBasedOnTheLatestFinancialStatements.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.totalAssetsBasedOnTheLatestFinancialStatements.errors.required" class="fontColorError">فیلد جمع دارایی شرکت بر اساس آخرین صورت های مالی الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > ســــرمـــایـــه ثــبــی بـــر اســـاس آخـــریــن روزنـــامــــه رســـمــی</span>
+                                         <input type="text" formControlName="recordingCapitalBasedOnTheLatestOfficialNewspaper"  [(ngModel)]="financialDetail.recordingCapitalBasedOnTheLatestOfficialNewspaper"
+                                          required class="form-control"   />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.recordingCapitalBasedOnTheLatestOfficialNewspaper.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.recordingCapitalBasedOnTheLatestOfficialNewspaper.errors.required" class="fontColorError">فیلد سرمایه ثــبــی بر اســاس آخـــرین روزنامه رســـمی الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > جمــع حقوق صاحبـان سـهـام بـر اســاس آخـریــن صورت هـای مـالـی</span>
+                                         <input type="text" formControlName="totalSalaryOfStockOwnerBasedOnTheLatestFinancialStatements"  [(ngModel)]="financialDetail.totalSalaryOfStockOwnerBasedOnTheLatestFinancialStatements"
+                                          required class="form-control"   />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.totalSalaryOfStockOwnerBasedOnTheLatestFinancialStatements.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.totalSalaryOfStockOwnerBasedOnTheLatestFinancialStatements.errors.required" class="fontColorError">فیلد جمع حقوق صاحبان سهام بر اساس آخرین صورت های مالی الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > جمع خرید در طی سال مالی گذشته بر اساس آخرین صورت‌های مالی</span>
+                                         <input type="text" formControlName="totalBuysLastYearBasedOnTheLatestFinancialStatements" [(ngModel)]="financialDetail.totalBuysLastYearBasedOnTheLatestFinancialStatements"
+                                          required class="form-control"   />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.totalBuysLastYearBasedOnTheLatestFinancialStatements.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.totalBuysLastYearBasedOnTheLatestFinancialStatements.errors.required" class="fontColorError">فیلد جمع خرید در طی سال مالی گذشته بر اساس آخرین صورت‌های مالی الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > جمع فروش خالص و درآمد نـاخالص پیمانکاری طی سال مـالـی گذشته</span>
+                                         <input type="text" formControlName="netSalesAndGrossContractRevenueBasedOnTheLatestFinancialStatements" [(ngModel)]="financialDetail.netSalesAndGrossContractRevenueBasedOnTheLatestFinancialStatements"
+                                          required class="form-control"   />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.netSalesAndGrossContractRevenueBasedOnTheLatestFinancialStatements.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.netSalesAndGrossContractRevenueBasedOnTheLatestFinancialStatements.errors.required" class="fontColorError">فیلد جمع فروش خالص و درآمد ناخالص پیمانکاری طی سال مالی گذشته الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+
+
+             <div class="row">
+
+
+                    <div class="col-lg-12 col-sm-12">
+
+                                <div class="can-toggle">
+                                        <input id="a" type="checkbox" formControlName="isTheCustomerRankedByReference" [(ngModel)]="financialDetail.isTheCustomerRankedByReference">
+                                        <label for="a">
+                                        <div class="can-toggle__label-text">آیا مشتری از طــرف مـرجعی مورد رتــبـه بندی قــرار گرفــته اسـت؟</div>
+
+                                        <div class="can-toggle__switch" data-checked="بلی" data-unchecked="خیر"></div>
+                                        </label>
+                                 </div>
+                 </div>
+
+
+
+                    </div>
+
+                <br />
+
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">نام مرجعه رتبه بندی کننده</span>
+                            <input type="text" formControlName="ratingReferenceName"   formControlName="ratingReferenceName" [(ngModel)]="financialDetail.ratingReferenceName"
+                            required class="form-control"   />
+                        </div>
+                        <div *ngIf="submitted && ctrl.ratingReferenceName.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && ctrl.ratingReferenceName.errors.required" class="fontColorError">فیلد نام مرجعه رتبه بندی کننده الزامی است</div>
+                         </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+
+
+
+
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="font-size: 8px">ت رتبه بندی</span>
+                            <dp-date-picker
+                             style="padding-left: 30px"
+                            dir="rtl"
+                            formControlName="ratingDate"
+                            mode="day"
+                            [(ngModel)]="financialDetail.ratingDate"
+
+                             required
+                            placeholder="تاریخ رتبه بندی"
+                            theme="dp-material">
+                        </dp-date-picker>
+                                </div>
+                        </div>
+                        <div *ngIf="submitted && ctrl.ratingDate.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && ctrl.ratingDate.errors.required" class="fontColorError">فیلد تاریخ رتبه بندی الزامی است</div>
+                         </div>
+            </div>
+
+
+
+            <div class="col-lg-6 col-sm-12">
+
+
+                <div class="input-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">رتــبه اخــذ شــده</span>
+                        <input type="text" formControlName="ratingNumber"  [(ngModel)]="financialDetail.ratingNumber"
+                        required class="form-control"   />
+                    </div>
+                    <div *ngIf="submitted && ctrl.ratingNumber.errors" class="invalid-feedback">
+                            <div *ngIf="submitted && ctrl.ratingNumber.errors.required" class="fontColorError">فیلد رتــبه اخــذ شــده الزامی است</div>
+                     </div>
+                </div>
+
+            </div>
+
+                 </div>
+                 <br />
+
+                 <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                            <!-- <input type='checkbox' class='ios8-switch' id='checkbox-1'>
+                          -->
+
+                            <div class="funkyradio">
+
+                                    <div class="funkyradio-primary">
+
+                                        <input type="checkbox"  formControlName="auctionMarket"  [(ngModel)]="financialDetail.auctionMarket" name="checkbox" id="checkbox2" />
+                                        <label class="fontSizeSmall" for='checkbox2'>متقاضی فعالیت در بازار فیزیکی کالا </label>
+
+                                    </div>
+                            </div>
+
+
+
+                </div>
+                <div class="col-lg-6 col-sm-12">
+
+
+                        <div class="funkyradio">
+                                <div class="funkyradio-primary">
+                                <input type="checkbox" formControlName="futureMarket"  [(ngModel)]="financialDetail.futureMarket" id="checkbox3"/>
+                                <label class="fontSizeSmall" for="checkbox3">متقاضی فعالیت در بازار مشتقه کالا </label>
+                            </div>
+                        </div>
+
+            </div>
+
+         </div>
+         <br />
+
+
+         <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="input-group">
+                    <span class="input-group-addon">پیش بینی ارزش معاملات بازار فیزیکی</span>
+                    <input type="text" formControlName="auctionMarketValue" [(ngModel)]="financialDetail.auctionMarketValue"
+                    required class="form-control"   />
+                </div>
+                <div *ngIf="submitted && ctrl.auctionMarketValue.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && ctrl.auctionMarketValue.errors.required" class="fontColorError">فیلد پیش بینی ارزش معاملات بازار فیزیکی الزامی است</div>
+             </div>
+            </div>
+        </div>
+
+        <br />
+
+
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="input-group">
+                    <span class="input-group-addon">پیش بینی ارزش معاملات بازار مشتقه </span>
+                    <input type="text" formControlName="futureMarketValue"  [(ngModel)]="financialDetail.futureMarketValue"
+                    required class="form-control"   />
+                </div>
+                <div *ngIf="submitted && ctrl.firstfutureMarketValueName.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && ctrl.futureMarketValue.errors.required" class="fontColorError">فیلد پیش بینی ارزش معاملات بازار مشتقه الزامی است</div>
+             </div>
+            </div>
+        </div>
+
+        <br />
+
+
+
+         </div>
+         <br />
+
+         <div class="row">
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                 <div class="col-xs-6 col-md-6">
+
+                         <button
+                         (click)="onSubmit()"
+                         [disabled]="!requestForm.valid" value="مرحله بعد"
+                         class="btn btn-success btn-block btn-lg">مرحله بعد
+                      </button>
+                 </div>
+                 <div class="col-xs-6 col-md-6">
+                     <a (click)="onPrevious()" class="btn btn-danger btn-block btn-lg">مرحله قبل</a>
+                 </div>
+             </div>
+         </div>
+         <br />
+         </div>
+         </form>

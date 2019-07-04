@@ -1,0 +1,12 @@
+<kendo-combobox
+    [data]="dataCollection"
+    [textField]="'name'"
+    [valueField]="'id'"
+    [filterable]="true"
+    (filterChange)="handleFilter($event)"
+    name="name"
+    [(ngModel)]="value"
+    [placeholder]="'انتخاب کنید'"
+>
+</kendo-combobox>
+

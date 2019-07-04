@@ -1,0 +1,42 @@
+/*@import "~angular-star-rating/assets/scss/star-rating.scss";*/
+
+
+
+
+/* @import "~src/assets/css/inquiryStyle.css"; */
+
+@font-face { font-family: 'BYekan';
+  src: url('../assets/fonts/BYekan.eot?#') format('eot'),  /* IE6–۸ */
+  url('../assets/fonts/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../assets/fonts/BYekan.ttf') format('truetype');  /* Saf3—۵, Chrome4+, FF3.5, Opera 10+ */
+}
+
+.myOrginalFont{
+  font-family: 'BYekan';
+
+
+}
+
+
+body {
+  background:black;
+}
+
+.box{
+  background-color:white;
+  width:100px;
+  height:100px;
+  position:relative;
+  animation-duration:6s;
+  animation-name: boxanimation;
+
+}
+
+@keyframes boxanimation {
+  0% {background-color:white;};
+  25% {background-color:red;};
+  50% {background-color:blue;};
+  75% {background-color:green;};
+  100% {background-color:white;};
+
+}

@@ -1,0 +1,248 @@
+<form  [formGroup]="requestForm" class="simple-form"  (ngSubmit)="onSubmit()">
+    <h3 style="text-align: center;">مشخصات عمومی شخص حقوقی</h3>
+     <div class="panel panel-info">
+         <div class="panel-heading clearfix">
+             <i class="icon-calendar"></i>
+             <h3 class="panel-title"></h3>
+         </div>
+
+         <div class="panel-body">
+                <div class="row">
+                        <p class="serghat-main">
+                                مرحله هویت سنجی
+                                <br>
+                                 لطفا اطلاعات هویتی مشتری خود را وارد نمایید.
+
+                        </p>
+                        <hr>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="input-group">
+                                    <span class="input-group-addon" > نام شـرکـت</span>
+                                         <input type="text" formControlName="companyName"
+                                          required class="form-control"  [(ngModel)]="legalBasicInformation.companyName" />
+                                </div>
+                                 <div *ngIf="submitted &&  ctrl.companyName.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.companyName.errors.required" class="fontColorError">فیلد نام الزامی است</div>
+                                 </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+             <div class="row">
+
+                <div class="col-lg-6 col-sm-12">
+
+                    <div class="input-group">
+                       <span class="input-group-addon">نوع فعالیت</span>
+                       <app-zones-of-activity-combo-box  [(ngModel)]="legalBasicInformation.activityType"  required  formControlName="activityType"></app-zones-of-activity-combo-box>
+                        </div>
+                        <div *ngIf="submitted && ctrl.activityType.errors" class="invalid-feedback">
+                                 <div *ngIf="submitted && ctrl.activityType.errors.required" class="fontColorError">فیلد نوع فعالیت الزامی است</div>
+                         </div>
+                </div>
+
+                 <div class="col-lg-6 col-sm-12">
+
+                         <div class="input-group">
+                            <span class="input-group-addon">شخصیت حقـوقی</span>
+                            <app-legal-type-combo-box  [(ngModel)]="legalBasicInformation.legalType"  required  formControlName="legalType"></app-legal-type-combo-box>
+                             </div>
+                             <div *ngIf="submitted && ctrl.legalType.errors" class="invalid-feedback">
+                                      <div *ngIf="submitted && ctrl.legalType.errors.required" class="fontColorError">فیلد نوع شخصیت حقوقی الزامی است</div>
+                              </div>
+                     </div>
+                 </div>
+
+             <br />
+
+
+             <div class="row">
+                <div class="col-lg-6 col-sm-12">
+
+                    <div class="input-group">
+                            <span class="input-group-addon">شماره ثبت</span>
+                            <input type="text" formControlName="registerNumber" [(ngModel)]="legalBasicInformation.registerNumber"   numbersOnly required  class="form-control" />
+                        </div>
+                        <div *ngIf="submitted && ctrl.registerNumber.errors" class="invalid-feedback">
+                                 <div *ngIf="submitted && ctrl.registerNumber.errors.required" class="fontColorError">فیلد شماره ثبت الزامی است</div>
+                         </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">مـــحــــل ثــبـــت</span>
+                         <app-city-combo-box  [(ngModel)]="legalBasicInformation.registerCity" required  formControlName="registerCity"></app-city-combo-box>
+                        </div>
+
+                        <div *ngIf="submitted && ctrl.registerCity.errors" class="invalid-feedback">
+                                 <div *ngIf="submitted && ctrl.registerCity.errors.required" class="fontColorError">فیلد محل ثبت الزامی است</div>
+                         </div>
+                </div>
+             </div>
+             <br />
+
+             <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
+                            <div class="input-group">
+                                    <span class="input-group-addon">شناسه ملی</span>
+                                    <input type="text" [(ngModel)]="legalBasicInformation.nationalCode"  disabled=true  formControlName="nationalCode" required class="form-control" />
+                                </div>
+                                <div *ngIf="submitted && ctrl.nationalCode.errors" class="invalid-feedback">
+                                        <div *ngIf="submitted && ctrl.nationalCode.errors.required" class="fontColorError">فیلد شناسه ملی الزامی است</div>
+                                 </div>
+                    </div>
+
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                            <span class="input-group-addon">کـــد اقــتــصـادی </span>
+                            <input type="text"  [(ngModel)]="legalBasicInformation.economicCode"   formControlName="economicCode" required class="form-control" />
+                        </div>
+                        <div *ngIf="submitted && ctrl.economicCode.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && ctrl.economicCode.errors.required" class="fontColorError">فیلد کد اقتصادی الزامی است</div>
+                         </div>
+                </div>
+
+
+                </div>
+                <br />
+
+
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
+
+
+                        <div class="input-group">
+
+                            <div class="input-group">
+                                <span class="input-group-addon">تــابــعــیــت</span>
+                                <app-country-combo-box  [(ngModel)]="legalBasicInformation.nationality" required  formControlName="nationality"></app-country-combo-box>
+                            </div>
+                            <div *ngIf="submitted && ctrl.nationality.errors" class="invalid-feedback">
+                                    <div *ngIf="submitted && ctrl.nationality.errors.required" class="fontColorError">فیلد تابعیت الزامی است</div>
+                             </div>
+                        </div>
+
+                    </div>
+
+
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="font-size: 8px">تاریخ ثبت</span>
+                            <dp-date-picker
+                             style=""
+                            dir="rtl"
+                            formControlName="dateObject"
+                            mode="day"
+                            [(ngModel)]="dateObject"
+
+                             required
+                            placeholder="تاریخ ثبت"
+                            theme="dp-material">
+                        </dp-date-picker>
+                                </div>
+                        </div>
+                        <div *ngIf="submitted && ctrl.registerDate.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && ctrl.registerDate.errors.required" class="fontColorError">فیلد تاریخ ثبت الزامی است</div>
+                         </div>
+            </div>
+
+                 </div>
+                 <br />
+
+
+             <div class="row">
+
+
+                    <div class="col-lg-12 col-sm-12">
+
+
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="can-toggle">
+                                        <input id="a" type="checkbox" formControlName="isLocatedInFreeZones"     [(ngModel)]="legalBasicInformation.isLocatedInFreeZones" >
+                                        <label for="a">
+                                        <div class="can-toggle__label-text">واقع در منطقه آزاد تجاری و صنعتی</div>
+
+                                        <div class="can-toggle__switch" data-checked="بلی" data-unchecked="خیر"></div>
+                                        </label>
+                                 </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+
+                                    <div class="input-group">
+                                            <span class="input-group-addon">لیست مناطق آزاد</span>
+                                            <app-free-zones-combo-box  formControlName="freeZone" [disableStatus]="!legalBasicInformation.isLocatedInFreeZones"  [(ngModel)]="legalBasicInformation.freeZone" ></app-free-zones-combo-box>
+                                        </div>
+
+
+                                </div>
+
+                 </div>
+
+
+
+                    </div>
+
+                <br />
+
+                <div class="row">
+
+                        <div class="col-lg-12 col-sm-12">
+
+
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="can-toggle">
+                                            <input id="b" type="checkbox" formControlName="isLocatedInSpecialEconomicZones"  [(ngModel)]="legalBasicInformation.isLocatedInSpecialEconomicZones">
+                                            <label for="b">
+                                            <div class="can-toggle__label-text">واقع در منطقه ویژه اقتصادی</div>
+
+                                            <div class="can-toggle__switch" data-checked="بلی" data-unchecked="خیر"></div>
+                                            </label>
+                                     </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+
+                                        <div class="input-group">
+                                                <span class="input-group-addon"> لیست مناطق ویژه</span>
+                                                <app-free-zones-combo-box  [disableStatus]="!legalBasicInformation.isLocatedInSpecialEconomicZones" formControlName="specialEconomicZones"  [(ngModel)]="legalBasicInformation.specialEconomicZones" ></app-free-zones-combo-box>
+                                            </div>
+
+
+                                    </div>
+
+                     </div>
+
+                    </div>
+
+
+         </div>
+         <br />
+
+         <div class="row">
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                 <div class="col-xs-6 col-md-6">
+                     <button
+                         (click)="onSubmit()"
+                         class="btn btn-success btn-block btn-lg"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+
+                         مرحله بعد
+                        </button>
+                 </div>
+                 <div class="col-xs-6 col-md-6">
+                     <a (click)="onPrevious()" class="btn btn-danger btn-block btn-lg"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                        مرحله قبل</a>
+                 </div>
+             </div>
+         </div>
+         <br />
+         </div>
+         </form>

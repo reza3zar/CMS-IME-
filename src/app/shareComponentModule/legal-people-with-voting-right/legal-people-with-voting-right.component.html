@@ -1,0 +1,267 @@
+<div class="row">
+    <p class="serghat-main">
+            مرحله ثبت نشانی
+            <br>
+             لطفا مشخصات هیات عامل، حسابرس، بازرسان قانونی یا هیات امنا را وارد نمایید.
+
+    </p>
+    <hr>
+</div>
+<form  [formGroup]="requestForm" class="simple-form"  *ngIf="showNewRequest"  (ngSubmit)="onSubmit()">
+        <h4 style="text-align: center;">ثبت مشخصات  مشخصات هیات عامل، حسابرس، بازرسان قانونی یا هیات امنا </h4>
+         <div class="panel panel-info">
+             <div class="panel-heading clearfix">
+                 <i class="icon-calendar"></i>
+                 <h3 class="panel-title"></h3>
+             </div>
+
+             <div class="panel-body">
+
+
+
+                 <div class="row">
+                     <div class="col-lg-6 col-sm-12">
+                            <div class="input-group">
+                                    <span class="input-group-addon">نــــــــام</span>
+                                    <input type="text" formControlName="fullName"   [(ngModel)]="legalPeopleWithVotingRight.fullName"  required  class="form-control" />
+                                </div>
+                                <div *ngIf="submitted && ctrl.fullName.errors" class="invalid-feedback">
+                                         <div *ngIf="submitted && ctrl.fullName.errors.required" class="fontColorError">فیلد نـــام الزامی است</div>
+                                 </div>
+                     </div>
+
+                     <div class="col-lg-6 col-sm-12">
+
+                             <div class="input-group">
+                                     <span class="input-group-addon">  ســــمـــت شـخص</span>
+                                     <app-positions-combo-box type="text" formControlName="position"  [(ngModel)]="legalPeopleWithVotingRight.position"    required   ></app-positions-combo-box>
+                                 </div>
+                                 <div *ngIf="submitted && ctrl.position.errors" class="invalid-feedback">
+                                          <div *ngIf="submitted && ctrl.position.errors.required" class="fontColorError">فیلد سمت الزامی است</div>
+                                  </div>
+                         </div>
+                     </div>
+
+                 <br />
+
+                 <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                    <div class="input-group">
+                                    <span class="input-group-addon">کـد مـلی</span>
+                                <input type='text'  [(ngModel)]="legalPeopleWithVotingRight.nationalCode"  [imask]="{mask: '00000000000'}" class="form-control" formControlName="nationalCode"  required type="text"   >
+                                    </div>
+                                    <div *ngIf="submitted && ctrl.nationalCode.errors" class="invalid-feedback">
+                                        <div *ngIf="submitted && ctrl.nationalCode.errors.required" class="fontColorError">فیلد کــد مــلی الزامی است</div>
+                                </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                        <div class="input-group">
+                                        <span class="input-group-addon">شــمــاره هــمـراه</span>
+                                    <input type='text'  [(ngModel)]="legalPeopleWithVotingRight.phone"   [imask]="{mask: '0000000000000000'}" class="form-control" formControlName="phone"  required type="text"   >
+                                        </div>
+                                        <div *ngIf="submitted && ctrl.phone.errors" class="invalid-feedback">
+                                            <div *ngIf="submitted && ctrl.phone.errors.required" class="fontColorError">فیلد شماره همراه الزامی است</div>
+                                    </div>
+                                        </div>
+
+                    </div>
+
+
+                    <br />
+
+                    <div class="row">
+
+                               <div class="col-lg-6 col-sm-12">
+
+                                       <div class="input-group">
+                                               <span class="input-group-addon">کد پستی</span>
+                                               <input type='text'  [(ngModel)]="legalPeopleWithVotingRight.postalCode" [imask]="{mask: '0000000000000'}" class="form-control" formControlName="postalCode"  required formControlName="postalCode"
+                                                    required   />
+                                           </div>
+                                           <div *ngIf="submitted && ctrl.postalCode.errors" class="invalid-feedback">
+                                                    <div *ngIf="submitted && ctrl.postalCode.errors.required" class="fontColorError">فیلد کد پستی الزامی است</div>
+                                            </div>
+                                   </div>
+
+                                   <div class="col-lg-6 col-sm-12">
+
+                                    <div class="input-group">
+                                            <span class="input-group-addon">حـدود اخـتـیـارات</span>
+                                            <app-directorate-authorities-combo-box  [(ngModel)]="legalPeopleWithVotingRight.directorateAuthorities" type="text" formControlName="directorateAuthorities" required   ></app-directorate-authorities-combo-box>
+                                        </div>
+                                        <div *ngIf="submitted && ctrl.directorateAuthorities.errors" class="invalid-feedback">
+                                                 <div *ngIf="submitted && ctrl.directorateAuthorities.errors.required" class="fontColorError">فیلد حدود اختیارات الزامی است</div>
+                                         </div>
+                                </div>
+                       </div>
+
+                <br />
+                 <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+
+                        <div class="input-group">
+                                <span class="input-group-addon">نشانی(محل سکونت)</span>
+                                <textarea rows="4" cols="50" class="form-control"  formControlName="address"  [(ngModel)]="legalPeopleWithVotingRight.address"
+                                  required  class="form-control" ></textarea>
+
+                            </div>
+                            <div *ngIf="submitted && ctrl.address.errors" class="invalid-feedback">
+                                     <div *ngIf="submitted && ctrl.address.errors.required" class="fontColorError">فیلد نشانی الزامی است</div>
+                             </div>
+                    </div>
+
+
+
+                 </div>
+                 <br />
+
+             </div>
+             <br />
+
+
+
+             <div class="row">
+                 <div class="col-md-12 col-sm-12 col-xs-12">
+                     <div class="col-xs-6 col-md-6">
+
+
+                             <button
+                             (click)="onSubmit()"
+                             [disabled]="!requestForm.valid" value="ذخیره "
+                             class="btn btn-success btn-block btn-lg">ذخیره
+                          </button>
+                     </div>
+                     <div class="col-xs-6 col-md-6">
+                         <a  (click)="cancel()"  class="btn btn-danger btn-block btn-lg">انصراف</a>
+                     </div>
+                 </div>
+             </div>
+             <br />
+
+
+
+             </div>
+             </form>
+             <div *ngIf="!showNewRequest" >
+                    <div class="row"  >
+                       <div class="col-md-12 col-sm-12 col-xs-12">
+                       <kendo-grid
+                       [data]="gridDataCollection"
+                       (selectionChange)="selected($event)"
+                       [resizable]="true"
+                       [sortable]="{ mode: 'multiple' }"
+                       [selectable]="{ mode: 'single' }"
+                       [sortable]="{
+                           allowUnsort: true,
+                           mode: 'multiple'
+                       }"
+                       [height]="200"
+                   >
+                   <kendo-grid-messages
+                   noRecords="رکوردی برای نمایش یافت نشد!"
+                   pagerItems="کل رکورد"
+                   pagerOf="از"
+                   sortAscending="صعودی"
+                   sortDescending="نزولی"
+                   filter="جستجو"
+                   columns="انتخاب سر ستون"
+                   columnsApply="اعمال"
+                   columnsReset="باز نشانی"
+               >
+               </kendo-grid-messages>
+                       <ng-template kendoGridToolbarTemplate>
+                        <button
+                        (click)="createNewRequest()"
+                        class="btn btn-default btn-block"
+                        type="button"
+                    ><i class="fa fa-plus" aria-hidden="true"></i>
+
+                        ایجاد
+                    </button>
+                       </ng-template>
+
+                       <kendo-grid-column
+                           field="fullName"
+                           title="نام"
+                           [filterable]="false"
+                       >
+                       </kendo-grid-column>
+
+                       <kendo-grid-column
+                       field="position.name"
+                       title="سمت"
+                       [filterable]="false"
+                       >
+                    </kendo-grid-column>
+
+                       <kendo-grid-column
+                       field="nationalCode"
+                       title="کد ملی"
+                       [filterable]="false"
+                       >
+                       </kendo-grid-column>
+
+
+
+                    <kendo-grid-column
+                    field="phone"
+                    title="شماره همراه"
+                    [filterable]="false"
+                >
+                </kendo-grid-column>
+
+
+                <kendo-grid-column
+                    field="address"
+                    title="نشانی"
+                    [filterable]="false"
+                >
+                </kendo-grid-column>
+
+
+                       <kendo-grid-column field="عملیات" [filterable]="false" width="120">
+                           <ng-template kendoGridCellTemplate let-dataItem>
+                               <div class="row" style="margin-right: 1px">
+                                   <button
+                                       type="button"
+                                       class="btn btn-block btn-circle"
+                                       [disabled]="disableShowBtn"
+                                       matTooltip="ویرایش"
+                                       (click)="editSelectedItem()">
+                                       <i class="fa fa-pencil"></i>
+                                   </button>
+                                   <button
+                                       type="button"
+                                       (click)="deleteSelectedItem()"
+                                       class="btn btn-info  btn-circle"
+                                       [disabled]="disableShowBtn">
+                                       <i class="fa fa-trash-o"></i>
+                                   </button>
+
+                               </div>
+                           </ng-template>
+                       </kendo-grid-column>
+
+
+                   </kendo-grid>
+                   </div>
+                </div>
+               <br>
+
+                    <div class="row">
+                       <div class="col-md-12 col-sm-12 col-xs-12">
+                           <div class="col-xs-6 col-md-6">
+                               <a
+                                   (click)="onNext()"
+                                   class="btn btn-success btn-block btn-lg">مرحله بعد</a>
+                           </div>
+                           <div class="col-xs-6 col-md-6">
+                               <a (click)="onPrevious()" class="btn btn-danger btn-block btn-lg">مرحله قبل</a>
+                           </div>
+                       </div>
+                   </div>
+                   <br />
+               </div>
+

@@ -1,0 +1,177 @@
+<form [formGroup]="requestForm" class="simple-form" (ngSubmit)="onSubmit()">
+    <h3 style="text-align: center;">مشخصات اطلاعات شغلی</h3>
+    <div class="panel panel-info">
+        <div class="panel-heading clearfix">
+            <i class="icon-calendar"></i>
+            <h3 class="panel-title"></h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <p class="serghat-main">
+                    مرحله اطلاعات شلغی
+                    <br />
+                    لطفا اطلاعات شغلی خود را وارد نمایید.
+                </p>
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">عنوان شغل</span>
+                        <input
+                            type="text"
+                            formControlName="jobTitle"
+                            [(ngModel)]="workingInfo.jobTitle"
+                            required
+                            class="form-control"
+                        />
+                    </div>
+                    <div
+                        *ngIf="submitted && ctrl.jobTitle.errors"
+                        class="invalid-feedback"
+                    >
+                        <div
+                            *ngIf="submitted && ctrl.jobTitle.errors.required"
+                            class="fontColorError"
+                        >
+                            فیلد عنوان شغل الزامی است
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-sm-12">
+                        <div class="input-group">
+                        <span class="input-group-addon" style="font-size: 9px">ت.اشتغال</span>
+                    <dp-date-picker
+                        class=""
+                        dir="rtl"
+                        formControlName="jobDate"
+                        mode="day"
+                        [(ngModel)]="dateObject"
+                        required
+                        placeholder="تاریخ اشتغال"
+                        theme="dp-material"
+                    >
+                    </dp-date-picker>
+                        </div>
+                    <div
+                        *ngIf="submitted && ctrl.jobDate.errors"
+                        class="invalid-feedback"
+                    >
+                        <div
+                            *ngIf="submitted && ctrl.jobDate.errors.required"
+                            class="fontColorError"
+                        >
+                            فیلد تاریخ اشتغال الزامی است
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">نام شرکت</span>
+                        <input
+                            type="text"
+                            formControlName="companyName"
+                            [(ngModel)]="workingInfo.companyName"
+                            required
+                            class="form-control"
+                        />
+                    </div>
+                    <div
+                        *ngIf="submitted && ctrl.companyName.errors"
+                        class="invalid-feedback"
+                    >
+                        <div
+                            *ngIf="
+                                submitted && ctrl.companyName.errors.required
+                            "
+                            class="fontColorError"
+                        >
+                            فیلد نام شرکت الزامی است
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">سمت </span>
+                        <input
+                            type="text"
+                            formControlName="position"
+                            [(ngModel)]="workingInfo.position"
+                            required
+                            class="form-control"
+                        />
+                    </div>
+                    <div
+                        *ngIf="submitted && ctrl.position.errors"
+                        class="invalid-feedback"
+                    >
+                        <div
+                            *ngIf="submitted && ctrl.position.errors.required"
+                            class="fontColorError"
+                        >
+                            فیلد سمت الزامی است
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">میزان تحصیلات</span>
+                        <app-education-combo-box
+                            type="text"
+                            formControlName="educationLevel"
+                            [(ngModel)]="workingInfo.educationLevel"
+                            required
+                        ></app-education-combo-box>
+                    </div>
+                    <div
+                        *ngIf="submitted && ctrl.educationLevel.errors"
+                        class="invalid-feedback"
+                    >
+                        <div
+                            *ngIf="
+                                submitted && ctrl.educationLevel.errors.required
+                            "
+                            class="fontColorError"
+                        >
+                            فیلد میزان تحصیلات الزامی است
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-xs-6 col-md-6">
+                    <button
+                        (click)="onSubmit()"
+                        [disabled]="!requestForm.valid"
+                        value="مرحله بعد"
+                        class="btn btn-success btn-block btn-lg"
+                    >مرحله بعد</button>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <a
+                        (click)="onPrevious()"
+                        class="btn btn-danger btn-block btn-lg"
+                        >مرحله قبل</a
+                    >
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+</form>

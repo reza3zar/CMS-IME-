@@ -1,0 +1,149 @@
+<form  [formGroup]="requestForm" class="simple-form"   >
+        <h3 style="text-align: center;">مشخصات حساب بانکی </h3>
+         <div class="panel panel-info">
+             <div class="panel-heading clearfix">
+                 <i class="icon-calendar"></i>
+                 <h3 class="panel-title"></h3>
+             </div>
+
+             <div class="panel-body">
+                    <div class="row">
+                            <p class="serghat-main">
+                                    مرحله اطلاعات حساب بانکی
+                                    <br>
+                                     لطفا اطلاعات حساب بانکی خود را وارد نمایید.
+
+                            </p>
+                            <hr>
+                        </div>
+                 <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                                <div class="input-group">
+                                        <span class="input-group-addon">بــــــــــانــــــــک </span>
+                                        <app-bank-combo-box   formControlName="bank" [(ngModel)]="bankInfo.bank"
+                                        required  ></app-bank-combo-box >
+
+                                    </div>
+                                    <div *ngIf="submitted && ctrl.bank.errors" class="invalid-feedback">
+                                            <div *ngIf="submitted && ctrl.bank.errors.required" class="fontColorError">فیلد بانک الزامی است</div>
+                                     </div>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                                <div class="input-group">
+                                        <span class="input-group-addon">شــــهــــرســتــــان </span>
+                                        <app-city-combo-box   formControlName="city" [(ngModel)]="bankInfo.city"
+                                        required  ></app-city-combo-box  >
+
+                                    </div>
+                                    <div *ngIf="submitted && ctrl.city.errors" class="invalid-feedback">
+                                            <div *ngIf="submitted && ctrl.city.errors.required" class="fontColorError">فیلد شهرستان الزامی است</div>
+                                     </div>
+                        </div>
+
+                     </div>
+
+                 <br />
+
+
+                 <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+
+                        <div class="input-group">
+                                <span class="input-group-addon">نـــــام شـــعـبــه</span>
+                                <input type="text" formControlName="branchName"  [(ngModel)]="bankInfo.branchName"   required  class="form-control" />
+                            </div>
+                            <div *ngIf="submitted && ctrl.branchName.errors" class="invalid-feedback">
+                                     <div *ngIf="submitted && ctrl.branchName.errors.required" class="fontColorError">فیلد نام شعبه الزامی است</div>
+                             </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+
+                        <div class="input-group">
+                                <span class="input-group-addon">کـــد شعبـــه </span>
+                                <input type='text'  [imask]="{mask: '0000000000000'}" class="form-control" formControlName="branchCode"  [(ngModel)]="bankInfo.branchCode"
+                                  required  class="form-control" />
+                            </div>
+                            <div *ngIf="submitted && ctrl.branchCode.errors" class="invalid-feedback">
+                                     <div *ngIf="submitted && ctrl.branchCode.errors.required" class="fontColorError">فیلد کد شعبه الزامی است</div>
+                             </div>
+                    </div>
+                 </div>
+                 <br />
+
+                 <div class="row">
+
+                        <div class="col-lg-6 col-sm-12">
+                                <div class="input-group">
+                                        <span class="input-group-addon">نـــــوع حســــاب </span>
+                                        <app-bank-accout-type type="text" formControlName="accountTypes" [(ngModel)]="bankInfo.accountType"
+                                        required  ></app-bank-accout-type >
+
+                                    </div>
+                                    <div *ngIf="submitted && ctrl.accountTypes.errors" class="invalid-feedback">
+                                            <div *ngIf="submitted && ctrl.accountTypes.errors.required" class="fontColorError">فیلد نوع حساب الزامی است</div>
+                                     </div>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+
+                                <div class="input-group">
+                                        <span class="input-group-addon"> شماره حساب</span>
+                                        <input type='text'  [imask]="{mask: '0000000000000'}" class="form-control" formControlName="accountNumber"
+                                         [(ngModel)]="bankInfo.accountNumber"   required  class="form-control" />
+                                    </div>
+                                    <div *ngIf="submitted && ctrl.accountNumber.errors" class="invalid-feedback">
+                                             <div *ngIf="submitted && ctrl.accountNumber.errors.required" class="fontColorError">فیلد شماره حساب الزامی است</div>
+                                     </div>
+                            </div>
+
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+
+                           <div class="col-lg-12 col-sm-12">
+                                   <div class="input-group">
+                                           <span class="input-group-addon">  کـــــــد شــــبــــا </span>
+                                           <input type='text'  [imask]="{mask: '0000000000000'}" class="form-control"  formControlName="IBANCode"  [(ngModel)]="bankInfo.IBANCode"
+                                            required  class="form-control" />
+
+                                       </div>
+                                       <div *ngIf="submitted && ctrl.IBANCode.errors" class="invalid-feedback">
+                                               <div *ngIf="submitted && ctrl.IBANCode.errors.required" class="fontColorError">فیلد کد شبا الزامی است</div>
+                                        </div>
+                           </div>
+
+
+                       </div>
+
+
+                    <br />
+
+             </div>
+             <br />
+
+             <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xs-6 col-md-6">
+
+
+
+
+                            <button
+                            (click)="onSubmit()"
+                            [disabled]="!requestForm.valid" value="درخواست ذخیره"
+                            class="btn btn-success btn-block btn-lg"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            درخواست ذخیره
+                         </button>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <a (click)="onPrevious()" class="btn btn-danger btn-block btn-lg">مرحله قبل</a>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+             </div>
+             </form>
