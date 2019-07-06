@@ -70,9 +70,6 @@ export class FormsBuilder implements OnInit, OnDestroy {
         else
 
          fieldsCtrls[f.name] = new FormControl(f.value);
-
-        // fieldsCtrls[f.name] = new FormGroup(opts)
-
     }
 
     this.form = new FormGroup(fieldsCtrls);
