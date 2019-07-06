@@ -9,29 +9,7 @@ import { LoginComponent } from "./login/login.component";
 import { SlideService } from "./services";
 import { InActiveBackgroundService } from "./in-active-background.service";
 
-// {path: 'credit',loadChildren : "./CreditModule/credit.module#CreditModule"},
-// {
-//   path: '',
-//   pathMatch: 'full',
-//   redirectTo: 'credit'
-// },
-// { path: '',loadChildren : "./home/home.module#HomeModule"},
-// { path: '',loadChildren : "./CreditModule/credit.module#CreditModule"},
-// {
-//   path: 'credit',
-//   loadChildren: './CreditModule/credit.module#CreditModule'
-// },
-// {
-//   path: 'home',
-//   loadChildren: './home/home.module#HomeModule'
-// },
-// {
-//   path: '',
-//   redirectTo: 'home',
-//   pathMatch: 'full'
-// },
-
-// { path: "**", component: NotFoundComponent }
+ 
 
 
 const routes: Routes = [
