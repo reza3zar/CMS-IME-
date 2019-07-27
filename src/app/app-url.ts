@@ -47,6 +47,7 @@ export const AppUrl = {
      'zonesOfActivity':basUrl+'/common/ZoneOfActivities',
     'chekIsExistExternalId':basUrl+'/exchange/customers/exists',
     'inquiryDepositoryByNationalID':basUrl+'/Inquiries/Warehouseinfo/meta/',
+    'behinyabinfo':basUrl+'/Inquiries/behinyabinfo/meta/',
 
 
 

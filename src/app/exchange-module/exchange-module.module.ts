@@ -26,6 +26,7 @@ import { InquiryFidaNaturalPersonComponent } from './inquiry-fida-natural-person
 import { InquiryCellInfoComponent } from './inquiry-cell-info/inquiry-cell-info.component';
 import { InquiryCellInfoLegalComponent } from './inquiry-cell-info-legal/inquiry-cell-info-legal.component';
 import { InquiryDepositoryByNationalIDComponent } from './inquiry-depository-by-national-id/inquiry-depository-by-national-id.component';
+import { BehinyabInfoComponent } from './behinyab-info/behinyab-info.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -59,6 +60,7 @@ import { InquiryDepositoryByNationalIDComponent } from './inquiry-depository-by-
     InquiryCellInfoComponent,
     InquiryCellInfoLegalComponent,
     InquiryDepositoryByNationalIDComponent,
+    BehinyabInfoComponent,
   ]
 })
 export class ExchangeModuleModule { }

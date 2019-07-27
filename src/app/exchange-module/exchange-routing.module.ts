@@ -1,3 +1,4 @@
+import { BehinyabInfoComponent } from './behinyab-info/behinyab-info.component';
 import { InquiryDepositoryByNationalIDComponent } from './inquiry-depository-by-national-id/inquiry-depository-by-national-id.component';
 import { InquiryCellInfoLegalComponent } from './inquiry-cell-info-legal/inquiry-cell-info-legal.component';
 import { InquiryCellInfoComponent } from './inquiry-cell-info/inquiry-cell-info.component';
@@ -26,7 +27,9 @@ const routes: Routes = [
     {path: 'InquiryDepositoryByNationalId', component:  InquiryDepositoryByNationalIDComponent},
     {path: 'InquiryFidaLegalPerson', component:  InquiryFidaLegalPersonComponent},
     {path: 'InquiryFidaNaturalPerson', component:  InquiryFidaNaturalPersonComponent},
-    {path: 'InquiryLegalPerson', component:  InquiryLegalPersonComponent}]
+    {path: 'InquiryLegalPerson', component:  InquiryLegalPersonComponent},
+    {path: 'behinyabInfo', component:  BehinyabInfoComponent},
+  ]
   }
 ]
 

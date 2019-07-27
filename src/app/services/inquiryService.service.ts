@@ -44,4 +44,10 @@ export class InquiryService {
     return this.http.get<any[]>(this.url.inquiryDepositoryByNationalID+nationalId);
   }
 
+  public getBehinyabInfobyNationalID(nationalId):Observable<any[]>{
+    return this.http.get<any[]>(this.url.behinyabinfo+nationalId);
+  }
+
+  
+
 }
