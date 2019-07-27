@@ -266,9 +266,9 @@ export class RequestsComponent implements OnInit, OnDestroy {
     setTimeout( () => {
       var newRequest=(new Object);
       if(this.customerType=='InteriorIndividual'){
-        newRequest['name']=request.personalDetails._firstName+' '+request.personalDetails._lastName;
+        newRequest['name']=request.personalDetails.firstName+' '+request.personalDetails.lastName;
         newRequest['nationality']=new Object;
-        newRequest['nationality'].name=request.personalDetails._nationality.name;
+        newRequest['nationality'].name=request.personalDetails.nationality.name;
         newRequest['id']= Math.floor(Math.random() * 60) + 1 ;
         newRequest['customerType']=new Object;
         newRequest['customerType'].name='حقیقی';

@@ -7,76 +7,21 @@ import { InteriorIndividualRequest } from "../Request/InteriorIndividualRequest/
 export class brokerRequest {
 
   public id:number;
+  
+  public   requestId: number ;
 
-  private _requestId: number;
-  public get requestId(): number {
-    return this._requestId;
-  }
-  public set requestId(v: number) {
-    this._requestId = v;
-  }
+  public   customerType: CustomerType ;
+  
+  public   nationality: Country ;
 
-  private _customerType: CustomerType;
-  public get customerType(): CustomerType {
-    return this._customerType;
-  }
-  public set customerType(v: CustomerType) {
-    this._customerType = v;
-  }
+  public   requestCreateDate: Date ;
 
-  private _nationality: Country;
-  public get nationality(): Country {
-    return this._nationality;
-  }
-  public set nationality(v: Country) {
-    this._nationality = v;
-  }
+  public   requestStatus : RequestStatus 
 
-  private _requestCreateDate: Date;
-  public get requestCreateDate(): Date {
-    return this._requestCreateDate;
-  }
-  public set requestCreateDate(v: Date) {
-    this._requestCreateDate = v;
-  }
+  public   responseStatus : ResponseStatus;
 
-  private _requestStatus: RequestStatus;
-  public get requestStatus(): RequestStatus {
-    return this._requestStatus;
-  }
-  public set requestStatus(v: RequestStatus) {
-    this._requestStatus = v;
-  }
-
-  private _responseStatus: ResponseStatus;
-  public get responseStatus(): ResponseStatus {
-    return this._responseStatus;
-  }
-  public set responseStatus(v: ResponseStatus) {
-    this._responseStatus = v;
-  }
-
-  private _requestName: string;
-  public get requestName(): string {
-    return this._requestName;
-  }
-  public set requestName(v: string) {
-    this._requestName = v;
-  }
+  public   requestName: string ;
 
   public nationalCode: string;
-
-  // private _nationalCode : string;
-  // public get nationalCode() : string {
-  //   return this._nationalCode;
-  // }
-  // public set nationalCode(v : string) {
-  //   if(this.interiorIndiviual&&this.interiorIndiviual.personalDetails){
-  //     this.interiorIndiviual.personalDetails.nationalCode=v;
-  //   }
-  //   this._nationalCode = v;
-  // }
-
-  // public interiorIndiviual?:InteriorIndividualRequest ;
 
 }

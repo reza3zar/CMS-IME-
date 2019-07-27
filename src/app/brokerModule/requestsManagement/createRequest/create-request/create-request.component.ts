@@ -9,6 +9,7 @@ import { InteriorIndividualBrokerRequest } from "../../../../Models/CustomersMod
 import { BrokerRequestParameter } from "../../../../Models/Misc/BrokerRequestParameter";
 import { InteriorLegalBrokerRequest } from "../../../../Models/CustomersModels/Common/interiorLegalBrokerRequest";
 import { SidebarService } from "../../../../SlideInOutModule/sidebar.service";
+import { stringify } from "querystring";
 
 @Component({
   selector: "app-create-request",
@@ -135,7 +136,9 @@ export class CreateRequestComponent implements OnInit, OnDestroy {
 
     if (this.customerTypeDescription == "InteriorIndividual")
     {
+
       console.log(this.requestInteriorIndividual);
+      console.log(JSON.stringify(this.requestInteriorIndividual) )
       this.clickedSaveRequest.emit(this.requestInteriorIndividual);
     }
 

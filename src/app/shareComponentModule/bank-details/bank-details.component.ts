@@ -36,13 +36,10 @@ export class BankDetailsComponent implements OnInit {
 
 
   onSubmit() {
-  console.log('Alireza')
-
     this.submitted = true;
     if (this.requestForm.invalid) {
       return;
   }
-  console.log('reza')
   this.clickedSaveRequest.emit();
 
   // this.clickedNext.emit();
