@@ -48,6 +48,8 @@ export class InquiryService {
     return this.http.get<any[]>(this.url.behinyabinfo+nationalId);
   }
 
-  
+  public getCustomerInfoTsetmcbyNationalID(nationalId):Observable<any[]>{
+    return this.http.get<any[]>(this.url.customerInfo+nationalId);
+  }
 
 }

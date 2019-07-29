@@ -11,6 +11,7 @@ import { HomeLayoutComponent } from '../CommonModule/home-layout/home-layout.com
 import { AllRequestsManagementComponent } from './all-requests-management/all-requests-management.component';
 import { InquiryDepositoryComponent } from './inquiry-depository/inquiry-depository.component';
 import { InquiryFidaNaturalPersonComponent } from './inquiry-fida-natural-person/inquiry-fida-natural-person.component';
+import { TsetmcCustomerInfoComponent } from './tsetmc-customer-info/tsetmc-customer-info.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,9 @@ const routes: Routes = [
     {path: 'InquiryFidaLegalPerson', component:  InquiryFidaLegalPersonComponent},
     {path: 'InquiryFidaNaturalPerson', component:  InquiryFidaNaturalPersonComponent},
     {path: 'InquiryLegalPerson', component:  InquiryLegalPersonComponent},
-    {path: 'behinyabInfo', component:  BehinyabInfoComponent},
+    {path: 'exchange/InquiryBehinyabInfo', component:  BehinyabInfoComponent},
+    {path: 'exchange/InquiryEx14Code', component:  TsetmcCustomerInfoComponent},
+
   ]
   }
 ]

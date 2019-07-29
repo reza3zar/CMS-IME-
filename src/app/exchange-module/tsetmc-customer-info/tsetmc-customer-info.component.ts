@@ -7,12 +7,13 @@ import { InActiveBackgroundService } from "../../in-active-background.service";
 import { Subscription } from "rxjs";
 import { SidebarService } from "../../SlideInOutModule/sidebar.service";
 import { NotificationService } from "@progress/kendo-angular-notification";
+
 @Component({
-  selector: 'app-behinyab-info',
-  templateUrl: './behinyab-info.component.html',
-  styleUrls: ['./behinyab-info.component.css']
+  selector: 'app-tsetmc-customer-info',
+  templateUrl: './tsetmc-customer-info.component.html',
+  styleUrls: ['./tsetmc-customer-info.component.css']
 })
-export class BehinyabInfoComponent implements OnInit,OnDestroy {
+export class TsetmcCustomerInfoComponent implements OnInit,OnDestroy {
   submitted = false;
   requestForm: FormGroup;
   public _collectionControls:  Array< CustomControl> =new Array< CustomControl>() ;
@@ -101,12 +102,21 @@ export class BehinyabInfoComponent implements OnInit,OnDestroy {
     }
     this.sendDataToServer=true;
     this._collectionControls=[];
-    this.servicesSubscriber=  this.service.getBehinyabInfobyNationalID(this.inquiryTax.nationalCode).subscribe(dataResult => {
+console.log(this.inquiryTax.nationalCode)
+
+    this.servicesSubscriber=  this.service.getCustomerInfoTsetmcbyNationalID(this.inquiryTax.nationalCode).subscribe(dataResult => {
+
+      if(dataResult==null || dataResult.length==0)
+      {
+        this.showError("اطلاعاتی برای نمایش یافت نشد!");
+        this.formIsLoaded=false
+        this.sendDataToServer=false;
+        return;
+      }
       this._collectionControlsTemp =new Array< CustomControl>() ;
       this._collectionControlsTemp.push(dataResult as CustomControl);
 
-      this.mapToCoorectFormat(this._collectionControlsTemp[0]);
-      console.log(this._collectionControlsTemp)
+      this.mapToCoorectFormat(this._collectionControlsTemp);
       this.formIsLoaded=false
       this.sendDataToServer=false;
 

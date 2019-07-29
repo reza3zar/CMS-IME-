@@ -48,6 +48,7 @@ export const AppUrl = {
     'chekIsExistExternalId':basUrl+'/exchange/customers/exists',
     'inquiryDepositoryByNationalID':basUrl+'/Inquiries/Warehouseinfo/meta/',
     'behinyabinfo':basUrl+'/Inquiries/behinyabinfo/meta/',
+    'customerInfo':basUrl+'/Inquiries/tsetmc/customerinfo/meta/',
 
 
 

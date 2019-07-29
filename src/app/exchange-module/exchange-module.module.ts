@@ -27,6 +27,7 @@ import { InquiryCellInfoComponent } from './inquiry-cell-info/inquiry-cell-info.
 import { InquiryCellInfoLegalComponent } from './inquiry-cell-info-legal/inquiry-cell-info-legal.component';
 import { InquiryDepositoryByNationalIDComponent } from './inquiry-depository-by-national-id/inquiry-depository-by-national-id.component';
 import { BehinyabInfoComponent } from './behinyab-info/behinyab-info.component';
+import { TsetmcCustomerInfoComponent } from './tsetmc-customer-info/tsetmc-customer-info.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -61,6 +62,7 @@ import { BehinyabInfoComponent } from './behinyab-info/behinyab-info.component';
     InquiryCellInfoLegalComponent,
     InquiryDepositoryByNationalIDComponent,
     BehinyabInfoComponent,
+    TsetmcCustomerInfoComponent,
   ]
 })
 export class ExchangeModuleModule { }
