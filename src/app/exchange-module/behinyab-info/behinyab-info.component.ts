@@ -68,16 +68,22 @@ export class BehinyabInfoComponent implements OnInit,OnDestroy {
     }
   }
 
-  mapToCoorectFormat(dataResult) {
-    for (let key of Object.keys(dataResult[0])) {
+  
+  pageLength=0;
+  mapToCoorectFormat(dataResult:any,pageIndex=0) {
+    this.pageLength=dataResult.length;
+    this._collectionControls=new Array<CustomControl>() ;
+    // console.error(dataResult[pageIndex])
+    for (let key of Object.keys(dataResult[pageIndex])) {
 
-      let mealName = dataResult[0][key];
+      let mealName = dataResult[pageIndex][key];
 
       this._collectionControls.push(mealName);
     }
-    this._collectionControls= this._collectionControls.sort((a, b) => a.order - b.order);
     console.log(this._collectionControls)
+    this._collectionControls= this._collectionControls.sort((a, b) => a.order - b.order);
 
+    
     this.typeOpereation==='showInquiry'
     this.mymenuState = "in";
     setTimeout(() => {
@@ -87,11 +93,13 @@ export class BehinyabInfoComponent implements OnInit,OnDestroy {
     this.inActiveServ.changeStatus(true);
     this.state = true;
   }
+ 
 
   get ctrl() {
     return this.requestForm.controls;
   }
   formIsLoaded=false;
+  collectionHelper:any;
   inquiryTaxInfo(): void {
     this.submitted = true;
     this.formIsLoaded=true;
@@ -101,22 +109,38 @@ export class BehinyabInfoComponent implements OnInit,OnDestroy {
     }
     this.sendDataToServer=true;
     this._collectionControls=[];
-    this.servicesSubscriber=  this.service.getBehinyabInfobyNationalID(this.inquiryTax.nationalCode).subscribe(dataResult => {
-      this._collectionControlsTemp =new Array< CustomControl>() ;
-      this._collectionControlsTemp.push(dataResult as CustomControl);
 
-      this.mapToCoorectFormat(this._collectionControlsTemp[0]);
-      console.log(this._collectionControlsTemp)
-      this.formIsLoaded=false
-      this.sendDataToServer=false;
+    try {
+      this.servicesSubscriber=  this.service.getBehinyabInfobyNationalID(this.inquiryTax.nationalCode).subscribe(dataResult => {
+    if(dataResult==null || dataResult==undefined|| dataResult.length==0)
+{
+  this.formIsLoaded=false;
+  this.sendDataToServer=false;
+  this.showError('اطلاعاتی یافت نشد!');
+  return;
+}
+        this._collectionControlsTemp =new Array< CustomControl>() ;
+        this._collectionControlsTemp.push(dataResult as CustomControl);
+        this.collectionHelper=this._collectionControlsTemp[0];
+        this.mapToCoorectFormat(this._collectionControlsTemp[0]);
+          
+        this.formIsLoaded=false
+        this.sendDataToServer=false;
+  
+      },error=>{
+        this.formIsLoaded=false;
+        this.sendDataToServer=false;
+        for (let err of error.error.errors) {
+          this.showError(err.message);
+      }
+    
+    });
+    } catch (error) {
 
-    },error=>{
-      for (let err of error.error.errors) {
-        this.showError(err.message);
-    }
       this.formIsLoaded=false;
       this.sendDataToServer=false;
-  });
+      this.showError(error.message);
+    }
 }
 
 
@@ -135,6 +159,12 @@ public showError(err?: any): void {
   });
 
 }
+
+pageChangedOccourred(pageIndexValue)
+{
+  this.mapToCoorectFormat(this.collectionHelper,pageIndexValue-1)
+}
+
 }
 
 

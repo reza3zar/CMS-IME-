@@ -3,7 +3,7 @@
     class="popup"
 
 >
-<app-show-result-info  [collection]="_collectionControls" ></app-show-result-info >
+<app-show-result-info (pageChanged)="pageChangedOccourred($event)"  [pageLength]="pageLength" [collection]="_collectionControls" ></app-show-result-info >
 
 
 </app-slid-in-out>

@@ -83,13 +83,7 @@
                 <i *ngIf="showSideBarIcon"    style="margin-top: 14px; margin-right: 5px;  float: right" (click)="changeStateSideBar(false)" class="fa fa-2x   fa-bars changeCursor"></i>
 
 
-
-                <ul class="top-menu"  [ngClass]="{'fullscreen-inActive':state}" *ngFor="let cat of categories; let i = index" >
-
-
-                        <li  (click)="onNavigate(cat)"><a>{{cat?.name}}</a></li>
-
-                    </ul>
+ 
 
 
 

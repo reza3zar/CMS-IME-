@@ -29,13 +29,37 @@
             <app-close-side-nav></app-close-side-nav>
 <hr>
 
-                <div class="panel-body" >
+                <div   class="panel-body" >
                     <forms-builder
                     [controls]="collection"
                     [operationBar]="operationBar"
-                  ></forms-builder>
-                </div>
+                  >
+                </forms-builder>
 
+                 <div  class="panel-body">
+ 
+
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link"  aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">قبلی</span>
+                            </a>
+                          </li>
+                          <li class="page-item" *ngFor="let pagerNumberItem of pagerCollection"><a class="page-link" (click)="changePager(pagerNumberItem)">{{pagerNumberItem}}</a></li>
+                          <li class="page-item">
+                            <a class="page-link"   aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">بعدی</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                 </div> 
+
+                </div>
 
         </div>
     </div>
